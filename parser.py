@@ -7,7 +7,7 @@ MAIN_URL = API_URL + "/admin/api/jsonrpc/"
 LOGIN = "Ilya"
 PASSWORD = "bkmz1337"
 
-call = [" ",""]
+call_reg = []
 def parse():
     login_session = requests.Session()
 
@@ -77,17 +77,16 @@ def parse():
         else:
             for item in data['result']["calls"]:
                 id_call = item["id"].split(".")[0]  # add id only number and check record
-                call[0] = id_call
-
-                if not call[0] == "" and not call[1] == id_call:
+                # call_reg.append(id_call)
+                if not id_call in call_reg:
                     number = item["FROM"]["NUMBER"]
-                    call[1] = id_call
                     print('добавил звонок')
+                    call_reg.append(id_call)
+
                     response = requests.post(f'https://okna360-crm.ru/ERPOKNA360/AddNewCalls.php?key=d41d8cd98f00b204e9800998ecf8427e&PhoneClient={number}')
 
         time.sleep(2)
 
 
 if __name__ == "__main__":
-
     parse()
