@@ -82,8 +82,8 @@ def parse():
                     number = item["FROM"]["NUMBER"]
                     print('добавил звонок')
                     call_reg.append(id_call)
-
-                    response = requests.post(f'https://okna360-crm.ru/ERPOKNA360/AddNewCalls.php?key=d41d8cd98f00b204e9800998ecf8427e&PhoneClient={number}')
+                    if not(number == '14') and not(number == '15'):
+                        response = requests.post(f'https://okna360-crm.ru/ERPOKNA360/AddNewCalls.php?key=d41d8cd98f00b204e9800998ecf8427e&PhoneClient={number}')
 
         time.sleep(2)
 
