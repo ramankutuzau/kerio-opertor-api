@@ -2,10 +2,10 @@ import requests
 import time
 
 
-API_URL = "https://192.168.1.209:4021"
+API_URL = ""
 MAIN_URL = API_URL + "/admin/api/jsonrpc/"
-LOGIN = "Ilya"
-PASSWORD = "bkmz1337"
+LOGIN = ""
+PASSWORD = ""
 
 call_reg = []
 def parse():
@@ -83,7 +83,7 @@ def parse():
                     print('добавил звонок')
                     call_reg.append(id_call)
                     if not(number == '14') and not(number == '15'):
-                        response = requests.post(f'https://okna360-crm.ru/ERPOKNA360/AddNewCalls.php?key=d41d8cd98f00b204e9800998ecf8427e&PhoneClient={number}')
+                        response = requests.post(f'')
 
         time.sleep(2)
 
